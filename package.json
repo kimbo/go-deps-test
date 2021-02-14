@@ -1,0 +1,23 @@
+{
+  "name": "go-deps-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimbo/go-deps-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimbo/go-deps-test/issues"
+  },
+  "homepage": "https://github.com/kimbo/go-deps-test#readme",
+  "dependencies": {
+    "happy-dump-server": "git+https://github.com/byumtc/hds.git"
+  }
+}
