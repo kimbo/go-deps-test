@@ -2,6 +2,14 @@
 #
 set -eu
 
+lockfile_tmpl='
+{
+	"name": "%s",
+	"version": "1.0.0",
+	"lockfileVersion": 1
+}
+'
+
 printf "Running 'npm init -y' " >&2
 npm init -y > /dev/null
 printf "done\n" >&2
@@ -17,8 +25,7 @@ for dep in $(go list -deps ./...); do
 done
 printf "done\n" >&2
 
-deps_json="$(printf '%s\n' ${deps[@]} | jq -R '. | {(.[indices("/")[0]+1:]): "git+https://\(.)"}' | jq -s 'reduce .[] as $item ({}; . * $item)')"
-jq --argjson deps "$deps_json" '. | .dependencies = $deps' package.json > package.tmp.json
-mv package.tmp.json package.json
+deps_json="$(printf '%s\n' ${deps[@]} | jq -R '. | {(.[indices("/")[0]+1:]): {"from": "git+https://\(.)", "version": "git+https://\(.)#main"}}' | jq -s 'reduce .[] as $item ({}; . * $item)')"
+printf "$lockfile_tmpl" "$modname" | jq --argjson deps "$deps_json" '. | .dependencies = $deps' > package-lock.json
 
-printf "Your dependencies have been updated in package.json\n" >&2
+printf "Your dependencies have been updated in package-lock.json\n" >&2
