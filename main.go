@@ -1,9 +1,12 @@
 package main
 
 import (
-    "fmt"
+	"github.com/julienschmidt/httprouter"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {
-    fmt.Println("Hello world")
+	log.Info("Hello world!")
+	router := httprouter.New()
+	_ = router
 }

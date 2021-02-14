@@ -1,0 +1,27 @@
+{
+  "name": "go-deps-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "julienschmidt/httprouter": "git+https://github.com/julienschmidt/httprouter",
+    "sirupsen/logrus": "git+https://github.com/sirupsen/logrus",
+    "kimbo/directmailers-loghook/api": "git+https://github.com/kimbo/directmailers-loghook/api",
+    "kimbo/go-deps-test/other": "git+https://github.com/kimbo/go-deps-test/other"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimbo/go-deps-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimbo/go-deps-test/issues"
+  },
+  "homepage": "https://github.com/kimbo/go-deps-test#readme",
+  "description": ""
+}
